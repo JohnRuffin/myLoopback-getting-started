@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Hello React</title>
+	<script src="https://fb.me/react-0.14.5.js"></script>
+	<script src="https://fb.me/react-dom-0.14.5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+
+		var HelloWorld = React.createClass({
+			render: function() {
+				return (
+					<p>
+						Hello, <input type="text" placeholder="Your name here" />!
+						It is {this.props.date.toTimeString()}
+					</p>
+					);
+			}
+		});
+
+		setInterval(function() {
+			ReactDOM.render(
+				<HelloWorld date={new Date()} />,
+				document.getElementById('example')
+				);
+		}, 500);
+
+	</script>
+
+	<script type="text/javascript">
+		fetch('http://0.0.0.0:3000/api/CoffeeShops')  
+		.then(  
+			function(response) {  
+				if (response.status !== 200) {  
+					console.log(`Oops. Status Code: ${response.status}`);  
+					return;  
+				}
+
+		  // Give me data  
+		  response.json().then(function(data) {  
+		  	console.log(data);  
+		  });  
+		}  
+		)  
+		.catch(function(err) {  
+			console.log('Fetch Error :-S', err);  
+		});
+	</script>
+</body>
+</html>

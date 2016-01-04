@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "dsMysql": {
+    "name": "dsMysql",
+    "debug": true,
+    "connector": "mysql",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "database": "sloop_getting_started",
+    "username": "webapp",
+    "password": "webapp"
+  }
+}
